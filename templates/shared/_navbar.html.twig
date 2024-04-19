@@ -32,14 +32,14 @@
 					</li>
 
 					<li class="nav-item">
-						<a href="" class="btn btn-dark">Me déconnecter</a>
+						<a href="{{ path('app_logout') }}" class="btn btn-dark">Me déconnecter</a>
 					</li>
 				{% else %}
 					<li class="nav-item">
-						<a href="" class="btn btn-success">Me connecter</a>
+						<a href="{{ path('app_login') }}" class="btn btn-success">Me connecter</a>
 					</li>
 					<li class="nav-item">
-						<a href="" class="btn btn-danger">M'inscrire'</a>
+						<a href="{{ path('app_register') }}" class="btn btn-danger">M'inscrire'</a>
 					</li>
 				{% endif %}
 
