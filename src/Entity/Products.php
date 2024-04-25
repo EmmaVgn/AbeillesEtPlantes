@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Products
 {
     use SlugTrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,9 +29,6 @@ class Products
 
     #[ORM\Column]
     private ?int $price = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTimeImmutable $createdAt ;
 
     #[ORM\Column]
     private ?int $stock = null;
@@ -119,19 +117,6 @@ class Products
     public function setCategories(?Categories $categories): static
     {
         $this->categories = $categories;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }
