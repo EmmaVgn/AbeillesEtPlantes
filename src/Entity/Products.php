@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Products
 {
     use SlugTrait;
-    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -53,7 +52,6 @@ class Products
     {
         $this->images = new ArrayCollection();
         $this->ordersDetails = new ArrayCollection();
-        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
