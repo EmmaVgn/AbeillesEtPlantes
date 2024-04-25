@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[UniqueEntity(fields: ['code'], message: 'Ce code a déjà été utilisé.')]
 class Coupons
 {
-    use CreatedAtTrait;
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -72,6 +72,9 @@ class Coupons
         return $this;
     }
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private ?\DateTimeImmutable $createdAt ;
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -128,6 +131,19 @@ class Coupons
     public function setValid(bool $isValid): static
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
