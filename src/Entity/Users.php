@@ -55,6 +55,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 150)]
     private ?string $city = null;
 
+    #[ORM\Column(type: Types::BOOLEAN)]
+    private bool $isVerified = false;
+
     /**
      * @var Collection<int, Orders>
      */
@@ -197,6 +200,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCity(string $city): static
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getIsVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
