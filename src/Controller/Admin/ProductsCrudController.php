@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Products;
 use App\Form\Type\CustomDateType;
 use App\Form\ProductImageFormType;
+use App\Form\ProductsImagesFormType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
@@ -44,9 +45,13 @@ class ProductsCrudController extends AbstractCrudController
             ->setCurrency('EUR')
             ->setTextAlign('left')
             ->setFormTypeOption('divisor', 100),
-            TextEditorField::new('shortDescription', 'Description courte du produit'),
+            TextEditorField::new('Description', 'Description courte du produit'),
             AssociationField::new('categories', 'Catégorie du produit'),
             NumberField::new('stock', 'Stock du produit'),
+            CollectionField::new('images', 'Images du véhicule')
+            ->setEntryType(ProductsImagesFormType::class)
+            ->setFormTypeOption('by_reference', false)
+            ->hideOnIndex(),
         ];
     }
 }

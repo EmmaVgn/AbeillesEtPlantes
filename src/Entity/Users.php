@@ -59,8 +59,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::BOOLEAN)]
     private bool $isVerified = false;
 
-    #[ORM\Column(type: Types::STRING, length: 100)]
-    private $resetToken;
+
 
     /**
      * @var Collection<int, Orders>
@@ -72,6 +71,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->orders = new ArrayCollection();
         $this->createdAt = new \DateTimeImmutable();
+       
     }
 
     public function getId(): ?int
@@ -157,7 +157,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+         $this->plainPassword = null;
     }
 
     public function getLastname(): ?string
@@ -230,15 +230,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getResetToken(): ?string
-    {
-        return $this->resetToken;
-    }
-    public function setResetToken(string $resetToken): self
-    {
-        $this->resetToken = $resetToken;
-        return $this;
-    }
+
 
     /**
      * @return Collection<int, Orders>
