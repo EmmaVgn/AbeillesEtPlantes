@@ -59,7 +59,8 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::BOOLEAN)]
     private bool $isVerified = false;
 
-
+    #[ORM\Column(type: Types::STRING, length: 100)]
+    private $resetToken;
 
     /**
      * @var Collection<int, Orders>
@@ -230,7 +231,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+    public function setResetToken(string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+        return $this;
+    }
 
     /**
      * @return Collection<int, Orders>
