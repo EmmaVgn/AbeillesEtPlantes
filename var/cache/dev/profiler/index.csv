@@ -2005,3 +2005,12 @@ d17df3,127.0.0.1,POST,https://127.0.0.1:8000/admin?crudAction=batchDelete&crudCo
 7c548b,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1714575306,,200,request
 b6942e,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714575307,3d7766,404,request
 3d7766,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714575307,,404,request
+ab22f7,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1714577977,,302,request
+3852ad,127.0.0.1,GET,https://127.0.0.1:8000/admin/,1714577977,,301,request
+0c174d,127.0.0.1,GET,https://127.0.0.1:8000/admin,1714577977,,302,request
+0db83b,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CCategoriesCrudController,1714577977,,200,request
+ab5e22,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController,1714577980,,200,request
+5f57c6,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CCouponsCrudController,1714577981,,200,request
+82b301,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5COrdersCrudController,1714577982,,200,request
+2af149,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUsersCrudController,1714577983,,200,request
+aace68,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController,1714577985,,200,request

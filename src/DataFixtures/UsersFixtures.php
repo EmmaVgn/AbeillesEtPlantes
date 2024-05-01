@@ -45,6 +45,7 @@ class UsersFixtures extends Fixture
             $user->setPassword(
                 $this->passwordEncoder->hashPassword($user, 'secret')
             );
+          
            
             $manager->persist($user);
         }
