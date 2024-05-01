@@ -14,7 +14,7 @@ class ProductsImagesFormType extends AbstractType
     {
         $builder
             ->add('imageFile', VichImageType::class, [
-                'label' => 'Image',
+                'label' => 'Images',
             ])
         ;
     }

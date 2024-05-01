@@ -285,8 +285,8 @@
           <parameter key="service">Vich\UploaderBundle\Naming\SmartUniqueNamer.products</parameter>
           <parameter key="options" type="collection"/>
         </parameter>
-        <parameter key="delete_on_remove">true</parameter>
         <parameter key="delete_on_update">true</parameter>
+        <parameter key="delete_on_remove">true</parameter>
         <parameter key="directory_namer" type="collection">
           <parameter key="service">null</parameter>
           <parameter key="options">null</parameter>

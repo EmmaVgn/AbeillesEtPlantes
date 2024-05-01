@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Users;
+use App\Entity\Images;
 use App\Entity\Orders;
 use App\Entity\Coupons;
 use App\Entity\Products;
@@ -49,6 +50,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégorie', 'fas fa-list', Categories::class);
         yield MenuItem::linkToCrud('Commandes', 'fas fa-cart-shopping', Orders::class);
         yield MenuItem::linkToCrud('Codes promos', 'fas fa-gift', Coupons::class);
+        yield MenuItem::linkToCrud('Images', 'fas fa-image', Images::class);
         if ($this->IsGranted('ROLE_ADMIN')) {
             yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Users::class);
         }

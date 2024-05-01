@@ -50,7 +50,6 @@ class ProductsCrudController extends AbstractCrudController
             NumberField::new('stock', 'Stock du produit'),
             CollectionField::new('images', 'Images du véhicule')
             ->setEntryType(ProductsImagesFormType::class)
-            ->setFormTypeOption('by_reference', false)
             ->hideOnIndex(),
         ];
     }
