@@ -17,12 +17,14 @@ class Categories extends \App\Entity\Categories implements \Doctrine\ORM\Proxy\I
 
     private const LAZY_OBJECT_PROPERTY_SCOPES = [
         "\0".parent::class."\0".'categories' => [parent::class, 'categories', null],
+        "\0".parent::class."\0".'categoryOrder' => [parent::class, 'categoryOrder', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
         "\0".parent::class."\0".'name' => [parent::class, 'name', null],
         "\0".parent::class."\0".'parent' => [parent::class, 'parent', null],
         "\0".parent::class."\0".'products' => [parent::class, 'products', null],
         "\0".parent::class."\0".'slug' => [parent::class, 'slug', null],
         'categories' => [parent::class, 'categories', null],
+        'categoryOrder' => [parent::class, 'categoryOrder', null],
         'id' => [parent::class, 'id', null],
         'name' => [parent::class, 'name', null],
         'parent' => [parent::class, 'parent', null],

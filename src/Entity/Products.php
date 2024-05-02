@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Trait\CreatedAtTrait;
 use App\Entity\Trait\SlugTrait;
 use App\Repository\ProductsRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -14,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Products
 {
     use SlugTrait;
+    use CreatedAtTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,6 +33,15 @@ class Products
 
     #[ORM\Column]
     private ?int $stock = null;
+
+    #[ORM\Column]
+    private ?int $capacity = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?DateTime $bestBeforeDate = null;
+
+    #[ORM\Column]
+    private ?bool $isValid = false;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -52,6 +63,8 @@ class Products
     {
         $this->images = new ArrayCollection();
         $this->ordersDetails = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
+  
     }
 
     public function getId(): ?int
@@ -103,6 +116,43 @@ class Products
     public function setStock(int $stock): static
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(int $capacity): static
+    {
+        $this->stock = $capacity;
+
+        return $this;
+    }
+
+    public function getBestBeforeDate(): ?\DateTimeImmutable
+    {
+        return $this->bestBeforeDate;
+    }
+
+    
+    public function setBestBeforeDate(\DateTimeImmutable $bestBeforeDate): self
+    {
+        $this->bestBeforeDate = $bestBeforeDate;
+
+        return $this;
+    }
+
+    public function isIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(bool $isValid): static
+    {
+        $this->isValid = $isValid;
 
         return $this;
     }

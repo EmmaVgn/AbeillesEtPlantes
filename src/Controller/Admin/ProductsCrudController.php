@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -48,9 +49,12 @@ class ProductsCrudController extends AbstractCrudController
             TextEditorField::new('Description', 'Description courte du produit'),
             AssociationField::new('categories', 'Catégorie du produit'),
             NumberField::new('stock', 'Stock du produit'),
+            NumberField::new('capacity', 'Capacité du produit'),
+            DateField::new('bestBeforeDate', 'Date de péremption'),
             CollectionField::new('images', 'Images du véhicule')
             ->setEntryType(ProductsImagesFormType::class)
             ->hideOnIndex(),
+            BooleanField::new('isValid', 'Produit en ligne'),
         ];
     }
 }
