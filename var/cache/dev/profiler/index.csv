@@ -2092,3 +2092,9 @@ b88cbf,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControlle
 0d940e,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController&entityId=40&sort%5Bid%5D=DESC,1714582814,,200,request
 235ff7,127.0.0.1,POST,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController&entityId=40&sort%5Bid%5D=DESC,1714582824,,302,request
 9fb15a,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController&entityId=40&sort%5Bid%5D=DESC,1714582824,,200,request
+db66f2,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController&entityId=40&sort%5Bid%5D=DESC,1714659377,,302,request
+1819ad,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1714659377,,200,request
+fdcc88,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714659378,96d886,404,request
+96d886,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714659378,,404,request
+162ed3,127.0.0.1,GET,https://127.0.0.1:8000/,1714659379,540784,500,request
+540784,127.0.0.1,GET,https://127.0.0.1:8000/,1714659379,,500,request
