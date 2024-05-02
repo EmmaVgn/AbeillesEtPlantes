@@ -87,6 +87,8 @@ class __TwigTemplate_983e1bc15f6a2e44ab1feb709ba13257 extends Template
 
         // line 7
         echo "\t<h1>Liste des produits</h1>
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,6 +131,8 @@ class __TwigTemplate_983e1bc15f6a2e44ab1feb709ba13257 extends Template
 
 {% block body %}
 \t<h1>Liste des produits</h1>
+
+
 {% endblock %}
 ", "products/index.html.twig", "/Users/emma/Code/En cours/abeilles_et_plantes/templates/products/index.html.twig");
     }

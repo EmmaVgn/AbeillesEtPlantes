@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier
+{% endblock %}
+
+{% block body %}
+	<main class="page wrapper">
+		{% if cart|length > 0 %}
+			<div class="container position-relative zindex-2 pt-5 pb-lg-5 pb-md-4 pb-2">
+				<div class="row">
+					<div class="col-lg-12 offset-lg-1 pt-1">
+						<h2 class="pt-md-2 my-4 mt-lg-5">
+							Mon panier</h2>
+						<p>Ajouter d'autres d'articles disponibles sur le site
+							<a href="#">
+								Voir les articles
+							</a>
+						</p>
+
+						{% for item in cart %}
+
+							<div class="d-sm-flex align-items-center border-top py-4">
+								<a class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-xl-3 mb-2 mb-sm-0 href=" #"">
+									<img src="" alt="Product" width="110"></a>
+								<div class="w-100 pt-1 ps-sm-4">
+									<div class="d-flex">
+										<div class="me-3">
+											<h3 class="h5 mb-2">
+												<a href="">
+													{{ item.product.name}}</a>
+
+											</h3>
+											<p class="mb-2">
+												{{ item.product.description }}
+											</p>
+										</div>
+										<div
+											class="text-end ms-auto">{#<div class="fs-5 mb-2">{{ (total / 100)|number_format(2,',','.') }}
+																								€</div> #}
+										</div>
+									</div>
+									{#<div class="count-input ms-n3">
+																			<a href="{{ path('cart_decrease', {id: product.product.id}) }}" class="btn btn-icon fs-xl" data-decrement>-</a>
+																			<input type="number" class="form-control" value="{{ product.quantity }} " readonly>
+																			<a href="{{ path('app_cart_add', {id: product.product.id}) }}" class="btn btn-icon fs-xl" data-increment>+</a>
+																		</div>
+																		<div class="nav justify-content-end mt-n5 mt-sm-n3">
+																			<a href="{{ path('app_cart_delete', {id: product.product.id}) }}" class="nav-link fs-xl p-2" data-bs-toggle="tooltip" title="remove">
+																				<i class="ai-trash"></i>
+																			</a>
+																		</div>#}
+								</div>
+							</div>
+
+
+						{% endfor %}
+					</div>
+
+					{% else %}
+
+				{% endif %}
+			</main>
+		{% endblock %}

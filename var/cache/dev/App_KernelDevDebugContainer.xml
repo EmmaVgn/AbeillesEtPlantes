@@ -473,6 +473,13 @@
         <argument type="service" id=".service_locator.ZP92gqz.App\Controller\Admin\UsersCrudController"/>
       </call>
     </service>
+    <service id="App\Controller\CartController" class="App\Controller\CartController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\CartController"/>
+      </call>
+    </service>
     <service id="App\Controller\CategoriesController" class="App\Controller\CategoriesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -583,6 +590,10 @@
     <service id="App\Security\UsersAuthenticator" class="App\Security\UsersAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
     </service>
+    <service id="App\Service\CartService" class="App\Service\CartService" autowire="true" autoconfigure="true">
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="App\Service\JWTService" class="App\Service\JWTService" autowire="true" autoconfigure="true"/>
     <service id="App\Service\SendMailService" class="App\Service\SendMailService" autowire="true" autoconfigure="true">
       <argument type="service" id="mailer.mailer"/>
@@ -617,7 +628,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.1pHZLQN"/>
+      <argument type="service" id=".service_locator.3pJj6Gv"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3637,7 +3648,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.1pHZLQN"/>
+      <argument type="service" id=".service_locator.3pJj6Gv"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -8251,6 +8262,9 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UsersCrudController" class="App\Controller\Admin\UsersCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UsersCrudController" class="App\Controller\Admin\UsersCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\UsersCrudController" class="App\Controller\Admin\UsersCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CartController" class="App\Controller\CartController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CartController" class="App\Controller\CartController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CartController" class="App\Controller\CartController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategoriesController" class="App\Controller\CategoriesController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategoriesController" class="App\Controller\CategoriesController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategoriesController" class="App\Controller\CategoriesController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -8856,6 +8870,12 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.t7nLwyX.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.IxD9RLm" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="cartService" type="service_closure" id="App\Service\CartService"/>
+      </argument>
+    </service>
     <service id=".service_locator.3M5uxVk" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8926,7 +8946,7 @@
         <argument key="usersRepository" type="service_closure" id="App\Repository\UsersRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.1pHZLQN" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3pJj6Gv" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\CategoriesCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
@@ -9077,6 +9097,9 @@
         <argument key="App\Controller\Admin\UsersCrudController::persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\UsersCrudController::renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\UsersCrudController::updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CartController::addToRoute" type="service_closure" id=".service_locator.IxD9RLm"/>
+        <argument key="App\Controller\CartController::index" type="service_closure" id=".service_locator.IxD9RLm"/>
+        <argument key="App\Controller\CartController::remove" type="service_closure" id=".service_locator.IxD9RLm"/>
         <argument key="App\Controller\CategoriesController::list" type="service_closure" id=".service_locator.3M5uxVk"/>
         <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.do9sDn8"/>
         <argument key="App\Controller\ProductsController::details" type="service_closure" id=".service_locator.cPzBaXc"/>
@@ -9238,6 +9261,9 @@
         <argument key="App\Controller\Admin\UsersCrudController:persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\UsersCrudController:renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\UsersCrudController:updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CartController:addToRoute" type="service_closure" id=".service_locator.IxD9RLm"/>
+        <argument key="App\Controller\CartController:index" type="service_closure" id=".service_locator.IxD9RLm"/>
+        <argument key="App\Controller\CartController:remove" type="service_closure" id=".service_locator.IxD9RLm"/>
         <argument key="App\Controller\CategoriesController:list" type="service_closure" id=".service_locator.3M5uxVk"/>
         <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.do9sDn8"/>
         <argument key="App\Controller\ProductsController:details" type="service_closure" id=".service_locator.cPzBaXc"/>
@@ -10083,6 +10109,12 @@
         <argument key="web_link.http_header_serializer" type="service_closure" id="web_link.http_header_serializer" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\CartController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CartController"/>
+      <argument>App\Controller\CartController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
     <service id=".service_locator.jUv.zyj.App\Controller\CategoriesController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\CategoriesController"/>
       <argument>App\Controller\CategoriesController</argument>
@@ -10309,6 +10341,7 @@
           <argument>App\Controller\Admin\OrdersCrudController</argument>
           <argument>App\Controller\Admin\ProductsCrudController</argument>
           <argument>App\Controller\Admin\UsersCrudController</argument>
+          <argument>App\Controller\CartController</argument>
           <argument>App\Controller\CategoriesController</argument>
           <argument>App\Controller\HomeController</argument>
           <argument>App\Controller\ProductsController</argument>
@@ -11773,7 +11806,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.1pHZLQN"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.3pJj6Gv"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -11828,6 +11861,7 @@
     <service id=".service_locator.i.G3y1p" alias=".service_locator.Lazlz4J"/>
     <service id=".service_locator.z_typH5" alias=".service_locator.vMUOjiq"/>
     <service id=".service_locator.uoBNKjJ" alias=".service_locator.t7nLwyX"/>
+    <service id=".service_locator.wqLiG0L" alias=".service_locator.IxD9RLm"/>
     <service id=".service_locator.flcjoxz" alias=".service_locator.3M5uxVk"/>
     <service id=".service_locator.otOFunJ" alias=".service_locator.do9sDn8"/>
     <service id=".service_locator.uocasTH" alias=".service_locator.cPzBaXc"/>
