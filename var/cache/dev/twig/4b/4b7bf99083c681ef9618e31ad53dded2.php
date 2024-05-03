@@ -153,7 +153,7 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
                 // line 48
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_decrease", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 48), "id", [], "any", false, false, false, 48)]), "html", null, true);
                 echo "\" class=\"btn btn-icon fs-xl\" data-decrement>-</a>
-\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"number\" value=\"";
+\t\t\t\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" value=\"";
                 // line 49
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "quantity", [], "any", false, false, false, 49), "html", null, true);
                 echo "\" readonly>
@@ -170,6 +170,7 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_remove", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "product", [], "any", false, false, false, 54), "id", [], "any", false, false, false, 54)]), "html", null, true);
                 echo "\" data-bs-toggle=\" tooltip\" title=\" remove\">
 \t\t\t\t\t\t\t\t\t\t\t<i class=\"bi bi-trash bi-lg\"></i>
+
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
@@ -179,20 +180,20 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 61
+            // line 62
             echo "\t\t\t\t\t\t<ul class=\"list-unstyled py-3 mb-0\">
 \t\t\t\t\t\t\t<li class=\"d-flex justify-content-bteween mb-2\">Nombre de produits:
 \t\t\t\t\t\t\t\t<span class=\"fw-semibold ms-2\">";
-            // line 63
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["cart"]) || array_key_exists("cart", $context) ? $context["cart"] : (function () { throw new RuntimeError('Variable "cart" does not exist.', 63, $this->source); })())), "html", null, true);
+            // line 64
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["cart"]) || array_key_exists("cart", $context) ? $context["cart"] : (function () { throw new RuntimeError('Variable "cart" does not exist.', 64, $this->source); })())), "html", null, true);
             echo "</span>
 \t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t</ul>
 \t\t\t\t\t\t<div class=\"d-flex align-item-center justify-content-between border-top fs-xl pt-4\">
 \t\t\t\t\t\t\tTotal:
 \t\t\t\t\t\t\t<span class=\"fs-3 fw-semibold text-dark ms-2\">";
-            // line 68
-            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, ((isset($context["total"]) || array_key_exists("total", $context) ? $context["total"] : (function () { throw new RuntimeError('Variable "total" does not exist.', 68, $this->source); })()) / 100), 2, ",", "."), "html", null, true);
+            // line 69
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, ((isset($context["total"]) || array_key_exists("total", $context) ? $context["total"] : (function () { throw new RuntimeError('Variable "total" does not exist.', 69, $this->source); })()) / 100), 2, ",", "."), "html", null, true);
             echo "
 \t\t\t\t\t\t\t\t€</span>
 \t\t\t\t\t\t</div>
@@ -204,14 +205,14 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
 
 \t";
         } else {
-            // line 78
+            // line 79
             echo "\t\t<div class=\"container d-flex flex-column justify-content-center min-vh-100 py-5\">
 \t\t\t<div class=\"text-center pt-4 mt-lg-2\">
 \t\t\t\t<h1 class=\"display-5\">Votre panier est vide</h1>
 \t\t\t\t<p class=\"fs-lg pb-2 pb-md-0 mb-4 mb-mb-5\">
 \t\t\t\t\tCommencez votre shopping dès maintenant à travers nos articles</p>
 \t\t\t\t<a href=\"";
-            // line 83
+            // line 84
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("products_index");
             echo "\" class=\"btn btn-lg btn-primary\">Voir les produits</a>
 \t\t\t</div>
@@ -219,7 +220,7 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
 
 \t";
         }
-        // line 88
+        // line 89
         echo "</main>";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -250,7 +251,7 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  223 => 88,  215 => 83,  208 => 78,  195 => 68,  187 => 63,  183 => 61,  170 => 54,  167 => 53,  162 => 50,  158 => 49,  154 => 48,  151 => 47,  142 => 41,  134 => 35,  127 => 31,  116 => 22,  113 => 21,  108 => 20,  106 => 19,  94 => 9,  92 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  224 => 89,  216 => 84,  209 => 79,  196 => 69,  188 => 64,  184 => 62,  170 => 54,  167 => 53,  162 => 50,  158 => 49,  154 => 48,  151 => 47,  142 => 41,  134 => 35,  127 => 31,  116 => 22,  113 => 21,  108 => 20,  106 => 19,  94 => 9,  92 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -303,13 +304,14 @@ class __TwigTemplate_5ae4e44d06907d1f13b331f77c518e6c extends Template
 \t\t\t\t\t\t\t\t\t{# J'affiche les produits et les quantités#}
 \t\t\t\t\t\t\t\t\t<div class=\"count-input ms-n3\">
 \t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('cart_decrease', {id: item.product.id}) }}\" class=\"btn btn-icon fs-xl\" data-decrement>-</a>
-\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"number\" value=\"{{ item.quantity }}\" readonly>
+\t\t\t\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" value=\"{{ item.quantity }}\" readonly>
 \t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('cart_add', {id: item.product.id}) }}\" class=\"btn btn-icon fs-xl\" data-increment>+</a>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t{# Je supprimer le produit du panier #}
 \t\t\t\t\t\t\t\t\t<div class=\"nav justify-content-end mt-n5 mt-sm-n3\">
 \t\t\t\t\t\t\t\t\t\t<a class=\"nav-link fs-xl p-2\" href=\"{{ path('cart_remove', {id: item.product.id}) }}\" data-bs-toggle=\" tooltip\" title=\" remove\">
 \t\t\t\t\t\t\t\t\t\t\t<i class=\"bi bi-trash bi-lg\"></i>
+
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>

@@ -46,13 +46,14 @@
 									{# J'affiche les produits et les quantités#}
 									<div class="count-input ms-n3">
 										<a href="{{ path('cart_decrease', {id: item.product.id}) }}" class="btn btn-icon fs-xl" data-decrement>-</a>
-										<input class="form-control" type="number" value="{{ item.quantity }}" readonly>
+										<input type="number" class="form-control" value="{{ item.quantity }}" readonly>
 										<a href="{{ path('cart_add', {id: item.product.id}) }}" class="btn btn-icon fs-xl" data-increment>+</a>
 									</div>
 									{# Je supprimer le produit du panier #}
 									<div class="nav justify-content-end mt-n5 mt-sm-n3">
 										<a class="nav-link fs-xl p-2" href="{{ path('cart_remove', {id: item.product.id}) }}" data-bs-toggle=" tooltip" title=" remove">
 											<i class="bi bi-trash bi-lg"></i>
+
 										</a>
 									</div>
 								</div>

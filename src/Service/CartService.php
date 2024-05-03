@@ -43,7 +43,7 @@ class CartService {
     }
 
 
-    public function decrease(int $id) 
+    public function decrease(int $id)
     {
         $cart = $this->getSession()->get('cart', []);
         if($cart[$id] > 1){
@@ -81,3 +81,4 @@ class CartService {
 
 
 }
+
