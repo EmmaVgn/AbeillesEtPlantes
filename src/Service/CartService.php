@@ -22,19 +22,36 @@ class CartService {
 
     public function addToCart(int $id): void {
 
-        $card = $this->requestStack->getSession()->get('cart', []);
-        if(!empty($card[$id])) {
-            $card[$id]++;
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        if(!empty($cart[$id])) {
+            $cart[$id]++;
         } else {
-            $card[$id] = 1;
+            $cart[$id] = 1;
         }
-
-        $this->getSession()->set('cart', $card);
+        $this->getSession()->set('cart', $cart);
     }
 
-    public function removeCart()
+    public function removeToCart (int $id) {
+        $cart = $this->requestStack->getSession()->get('cart', []);
+        unset($cart[$id]);
+        $this->getSession()->set('cart', $cart);
+    }
+
+    public function removeAllCart()
     {
         return $this->getSession()->remove('cart');
+    }
+
+
+    public function decrease(int $id) 
+    {
+        $cart = $this->getSession()->get('cart', []);
+        if($cart[$id] > 1){
+            $cart[$id]--;
+        }else{
+            unset($cart[$id]);
+        }
+        $this->getSession()->set('cart', $cart);
     }
 
     public function getTotal(): array  {

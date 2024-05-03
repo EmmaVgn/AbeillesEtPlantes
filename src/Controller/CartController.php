@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use App\Service\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class CartController extends AbstractController
 {
-    #[Route('/mon-panier', name: 'app_cart_index')]
+    #[Route('/mon-panier', name: 'cart_index')]
     public function index(CartService $cartService): Response
     {
         
@@ -20,18 +21,34 @@ class CartController extends AbstractController
         ]);
     }
 
-    #[Route('/mon-panier/add/{id}<\d+>', name: 'app_cart_add')]
-    public function addToRoute(CartService $cartService, int $id): Response
+    #[Route('/mon-panier/add/{id}<\d+>', name: 'cart_add')]
+    public function addToCart(CartService $cartService, int $id): Response
     {
         $cartService->addToCart($id);
 
-        return $this->redirectToRoute('app_cart_index');
+        return $this->redirectToRoute('cart_index');
     }
 
-    #[Route('/mon-panier/remove', name: 'app_cart_remove')]
-    public function remove(CartService $cartService): Response
+    #[Route('/mon-panier/remove/{id}<\d+>', name: 'cart_remove')]
+    public function removeToCart(CartService $cartService, int $id): Response
     {
-        $cartService->removeCart();
+        $cartService->removeToCart($id);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    #[Route('/mon-panier/decrease/{id<\d+>}', name: 'cart_decrease')]
+    public function decrease(CartService $cartService, $id): RedirectResponse
+    {
+        $cartService->decrease($id);
+
+        return $this->redirectToRoute('cart_index');
+    }
+
+    #[Route('/mon-panier/removeall', name: 'cart_removeall')]
+    public function removeAll(CartService $cartService): Response
+    {
+        $cartService->removeAllCart();
 
         return $this->redirectToRoute('products_index');
     }

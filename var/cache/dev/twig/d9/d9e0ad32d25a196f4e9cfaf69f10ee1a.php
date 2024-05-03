@@ -67,58 +67,58 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
 \t\t";
         // line 19
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 26
+        // line 29
         echo "
 \t\t<script src=\"";
-        // line 27
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\" defer></script>
 \t\t";
-        // line 28
+        // line 31
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 29
+        // line 32
         echo "\t\t<script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/scripts.js"), "html", null, true);
         echo "\" defer></script>
 \t\t";
-        // line 30
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
 \t</head>
 \t<body>
 \t\t";
-        // line 33
-        $this->loadTemplate("shared/_navbar.html.twig", "base.html.twig", 33)->display($context);
-        // line 34
+        // line 36
+        $this->loadTemplate("shared/_navbar.html.twig", "base.html.twig", 36)->display($context);
+        // line 37
         echo "\t\t";
-        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "isVerified", [], "any", false, false, false, 34) == false))) {
-            // line 35
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "user", [], "any", false, false, false, 37) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "user", [], "any", false, false, false, 37), "isVerified", [], "any", false, false, false, 37) == false))) {
+            // line 38
             echo "\t\t\t<div class=\"alert alert-warning alert-dismissible\" role=\"alert\">
 \t\t\t\t<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
 \t\t\t\t<div class=\"alert-message\">
 \t\t\t\t\t<strong>Votre compte n'est pas activé</strong>,
 \t\t\t\t\t<a href=\"";
-            // line 39
+            // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("resend_verif");
             echo "\">renvoyer le lien d'activation</a>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t";
         }
-        // line 43
+        // line 46
         echo "\t\t";
-        $this->loadTemplate("shared/_flash.html.twig", "base.html.twig", 43)->display($context);
-        // line 44
+        $this->loadTemplate("shared/_flash.html.twig", "base.html.twig", 46)->display($context);
+        // line 47
         echo "\t\t<div class=\"container pt-5\"> ";
         $this->displayBlock('body', $context, $blocks);
-        // line 45
+        // line 48
         echo "\t\t\t</div>
 \t\t</body>
 \t</html>
 </div>
 ";
-        // line 49
-        $this->loadTemplate("shared/_footer.html.twig", "base.html.twig", 49)->display($context);
+        // line 52
+        $this->loadTemplate("shared/_footer.html.twig", "base.html.twig", 52)->display($context);
         echo "</body></html>
 ";
         
@@ -165,10 +165,13 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
         echo "
 \t\t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/5/sandstone/bootstrap.min.css\">
 \t\t\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css\">
-\t\t\t<link rel=\"stylesheet\" href=\"";
-        // line 23
+\t\t\t<link
+\t\t\trel=\"stylesheet\" href=\"";
+        // line 24
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/styles.css"), "html", null, true);
         echo "\">
+\t\t\t<!-- Option 1: Include in HTML -->
+\t\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
 
 \t\t";
         
@@ -179,7 +182,7 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
 
     }
 
-    // line 28
+    // line 31
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -197,7 +200,7 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
 
     }
 
-    // line 44
+    // line 47
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -236,7 +239,7 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  201 => 44,  183 => 28,  170 => 23,  163 => 20,  153 => 19,  133 => 10,  121 => 49,  115 => 45,  112 => 44,  109 => 43,  102 => 39,  96 => 35,  93 => 34,  91 => 33,  85 => 30,  80 => 29,  78 => 28,  74 => 27,  71 => 26,  69 => 19,  60 => 12,  58 => 10,  47 => 1,);
+        return array (  204 => 47,  186 => 31,  171 => 24,  163 => 20,  153 => 19,  133 => 10,  121 => 52,  115 => 48,  112 => 47,  109 => 46,  102 => 42,  96 => 38,  93 => 37,  91 => 36,  85 => 33,  80 => 32,  78 => 31,  74 => 30,  71 => 29,  69 => 19,  60 => 12,  58 => 10,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -263,7 +266,10 @@ class __TwigTemplate_62888a05f0abac812a4e3fe3c9cf5e97 extends Template
 \t\t\t{{ encore_entry_link_tags('app') }}
 \t\t\t<link rel=\"stylesheet\" href=\"https://bootswatch.com/5/sandstone/bootstrap.min.css\">
 \t\t\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css\">
-\t\t\t<link rel=\"stylesheet\" href=\"{{ asset('assets/css/styles.css') }}\">
+\t\t\t<link
+\t\t\trel=\"stylesheet\" href=\"{{ asset('assets/css/styles.css') }}\">
+\t\t\t<!-- Option 1: Include in HTML -->
+\t\t\t<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
 
 \t\t{% endblock %}
 

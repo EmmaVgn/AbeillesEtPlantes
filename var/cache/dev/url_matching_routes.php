@@ -15,8 +15,8 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
-        '/mon-panier' => [[['_route' => 'app_cart_index', '_controller' => 'App\\Controller\\CartController::index'], null, null, null, false, false, null]],
-        '/mon-panier/remove' => [[['_route' => 'app_cart_remove', '_controller' => 'App\\Controller\\CartController::remove'], null, null, null, false, false, null]],
+        '/mon-panier' => [[['_route' => 'cart_index', '_controller' => 'App\\Controller\\CartController::index'], null, null, null, false, false, null]],
+        '/mon-panier/removeall' => [[['_route' => 'cart_removeall', '_controller' => 'App\\Controller\\CartController::removeAll'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/produits' => [[['_route' => 'products_index', '_controller' => 'App\\Controller\\ProductsController::index'], null, null, null, true, false, null]],
         '/profil' => [[['_route' => 'profile_index', '_controller' => 'App\\Controller\\ProfileController::index'], null, null, null, true, false, null]],
@@ -47,11 +47,15 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/mon\\-panier/add/([^/]+)\\<\\\\d\\+\\>(*:235)'
-                .'|/categories/([^/]++)(*:263)'
-                .'|/produits/([^/]++)(*:289)'
-                .'|/verif/([^/]++)(*:312)'
-                .'|/oubli\\-pass/([^/]++)(*:341)'
+                .'|/mon\\-panier/(?'
+                    .'|add/([^/]+)\\<\\\\d\\+\\>(*:238)'
+                    .'|remove/([^/]+)\\<\\\\d\\+\\>(*:269)'
+                    .'|decrease/(\\d+)(*:291)'
+                .')'
+                .'|/categories/([^/]++)(*:320)'
+                .'|/produits/([^/]++)(*:346)'
+                .'|/verif/([^/]++)(*:369)'
+                .'|/oubli\\-pass/([^/]++)(*:398)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -63,11 +67,13 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        235 => [[['_route' => 'app_cart_add', '_controller' => 'App\\Controller\\CartController::addToRoute'], ['id'], null, null, false, false, null]],
-        263 => [[['_route' => 'categories_list', '_controller' => 'App\\Controller\\CategoriesController::list'], ['slug'], null, null, false, true, null]],
-        289 => [[['_route' => 'products_details', '_controller' => 'App\\Controller\\ProductsController::details'], ['slug'], null, null, false, true, null]],
-        312 => [[['_route' => 'verify_user', '_controller' => 'App\\Controller\\RegistrationController::verifyUser'], ['token'], null, null, false, true, null]],
-        341 => [
+        238 => [[['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::addToCart'], ['id'], null, null, false, false, null]],
+        269 => [[['_route' => 'cart_remove', '_controller' => 'App\\Controller\\CartController::removeToCart'], ['id'], null, null, false, false, null]],
+        291 => [[['_route' => 'cart_decrease', '_controller' => 'App\\Controller\\CartController::decrease'], ['id'], null, null, false, true, null]],
+        320 => [[['_route' => 'categories_list', '_controller' => 'App\\Controller\\CategoriesController::list'], ['slug'], null, null, false, true, null]],
+        346 => [[['_route' => 'products_details', '_controller' => 'App\\Controller\\ProductsController::details'], ['slug'], null, null, false, true, null]],
+        369 => [[['_route' => 'verify_user', '_controller' => 'App\\Controller\\RegistrationController::verifyUser'], ['token'], null, null, false, true, null]],
+        398 => [
             [['_route' => 'app_reset_password', '_controller' => 'App\\Controller\\SecurityController::resetPass'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
