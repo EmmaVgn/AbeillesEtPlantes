@@ -23,3 +23,15 @@ afccd7,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Ill
 4efce9,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1714747390,,200,request
 6bd02d,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714747390,54c08a,404,request
 54c08a,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714747390,,404,request
+d30341,127.0.0.1,POST,https://127.0.0.1:8000/connexion,1714747533,,302,request
+1c60b4,127.0.0.1,GET,https://127.0.0.1:8000/,1714747533,,200,request
+8c9638,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714747534,61c74f,404,request
+61c74f,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714747534,,404,request
+ee241d,127.0.0.1,GET,https://127.0.0.1:8000/admin,1714747538,,302,request
+e0ee95,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CCategoriesCrudController,1714747538,,200,request
+442802,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CImagesCrudController,1714747539,,200,request
+89aea0,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController,1714747540,,200,request
+8c5f09,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CProductsCrudController,1714917960,,302,request
+9393db,127.0.0.1,GET,https://127.0.0.1:8000/connexion,1714917961,,200,request
+e765eb,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714917962,4ea43c,404,request
+4ea43c,127.0.0.1,GET,https://127.0.0.1:8000/assets/images/Grey%20&%20Cream%20Illustrated%20Honeybee%20Farm%20Logo.png,1714917962,,404,request

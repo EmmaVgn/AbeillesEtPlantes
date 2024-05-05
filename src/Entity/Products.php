@@ -9,9 +9,12 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
+#[Vich\Uploadable]
 class Products
 {
     use SlugTrait;
@@ -42,6 +45,15 @@ class Products
 
     #[ORM\Column]
     private ?bool $isValid = false;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 255, type: 'string')]
+    private ?string $attachment = null;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'attachment')]
+    private ?File $attachmentFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -155,6 +167,45 @@ class Products
         $this->isValid = $isValid;
 
         return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getAttachment(): ?string
+    {
+        return $this->attachment;
+    }
+
+    public function setAttachment(string $attachment): self
+    {
+        $this->attachment = $attachment;
+
+        return $this;
+    }
+
+
+    public function getAttachmentFile(): ?File
+    {
+        return $this->attachmentFile;
+    }
+
+    public function setAttachmentFile(?File $attachmentFile = null): void
+    {
+        $this->attachmentFile = $attachmentFile;
+
+        if (null !== $attachmentFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getCategories(): ?Categories
