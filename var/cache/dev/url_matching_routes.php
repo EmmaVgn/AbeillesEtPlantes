@@ -18,6 +18,7 @@ return [
         '/mon-panier' => [[['_route' => 'cart_index', '_controller' => 'App\\Controller\\CartController::index'], null, null, null, false, false, null]],
         '/mon-panier/removeall' => [[['_route' => 'cart_removeall', '_controller' => 'App\\Controller\\CartController::removeAll'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/order/create' => [[['_route' => 'order_index', '_controller' => 'App\\Controller\\OrderController::index'], null, null, null, false, false, null]],
         '/produits' => [[['_route' => 'products_index', '_controller' => 'App\\Controller\\ProductsController::index'], null, null, null, true, false, null]],
         '/profil' => [[['_route' => 'profile_index', '_controller' => 'App\\Controller\\ProfileController::index'], null, null, null, true, false, null]],
         '/profil/commandes' => [[['_route' => 'profile_orders', '_controller' => 'App\\Controller\\ProfileController::orders'], null, null, null, false, false, null]],

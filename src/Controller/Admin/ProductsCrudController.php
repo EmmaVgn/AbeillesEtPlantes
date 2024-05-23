@@ -50,9 +50,11 @@ class ProductsCrudController extends AbstractCrudController
             AssociationField::new('categories', 'Catégorie du produit'),
             NumberField::new('stock', 'Stock du produit'),
             NumberField::new('capacity', 'Capacité du produit'),
-            DateField::new('bestBeforeDate', 'Date de péremption'),
-            CollectionField::new('images', 'Images du véhicule')
+            DateField::new('bestBeforeDateAt', 'Date de péremption')
+            ->setFormat('dd-MM-yyyy'),
+            CollectionField::new('images', 'Images du produit')
             ->setEntryType(ProductsImagesFormType::class)
+            ->setFormTypeOption('by_reference', false)
             ->hideOnIndex(),
             BooleanField::new('isValid', 'Produit en ligne'),
         ];

@@ -78,40 +78,52 @@ class __TwigTemplate_2c2a0f0a10713814341a1d4138abc5b6 extends Template
         // line 29
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "user", [], "any", false, false, false, 29)) {
             // line 30
-            echo "\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"\" class=\"btn btn-info me-3\">Mon compte</a>
-\t\t\t\t\t</li>
-
-\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"";
+            echo "\t\t\t\t\t";
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                // line 31
+                echo "\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<a href=\"";
+                // line 32
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+                echo "\" class=\"nav-link\">Administration</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t";
+            }
             // line 35
+            echo "\t\t\t\t\t<div class=\"btn-group\">
+\t\t\t\t\t\t<button class=\"dropdown-toggle btn-dropdown-user\" type=\"button\" data-bs-toggle=\"dropdown\" data-bs-display=\"static\" aria-expanded=\"false\"></button>
+\t\t\t\t\t\t<ul class=\"dropdown-menu dropdown-menu-lg-end py-0\">
+
+\t\t\t\t\t\t\t<li class=\"py-2 px-2\">
+\t\t\t\t\t\t\t\t<a class=\"dropdown-item dropdown-user color-btn-logout\" href=\"";
+            // line 40
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\" class=\"btn btn-dark\">Me déconnecter</a>
-\t\t\t\t\t</li>
+            echo "\">Se déconnecter</a>
+\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t</ul>
+\t\t\t\t\t</div>
 \t\t\t\t";
         } else {
-            // line 38
+            // line 45
             echo "\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t<a href=\"";
-            // line 39
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-            echo "\" class=\"btn btn-success\">Me connecter</a>
+            echo "\" class=\"btn btn-success\">Se connecter</a>
 \t\t\t\t\t</li>
 \t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t<a href=\"";
-            // line 42
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-            echo "\" class=\"btn btn-danger\">M'inscrire'</a>
+            // line 49
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("register");
+            echo "\" class=\"btn btn-danger\">M'inscrire</a>
 \t\t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 45
+        // line 52
         echo "
-\t\t\t</ul>
-
+\t\t\t</div>
 \t\t</div>
-\t</div>
-</nav>
+\t</nav>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -142,7 +154,7 @@ class __TwigTemplate_2c2a0f0a10713814341a1d4138abc5b6 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  109 => 45,  103 => 42,  97 => 39,  94 => 38,  88 => 35,  81 => 30,  79 => 29,  57 => 10,  47 => 3,  43 => 1,);
+        return array (  123 => 52,  117 => 49,  111 => 46,  108 => 45,  100 => 40,  93 => 35,  87 => 32,  84 => 31,  81 => 30,  79 => 29,  57 => 10,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -176,27 +188,32 @@ class __TwigTemplate_2c2a0f0a10713814341a1d4138abc5b6 extends Template
 \t\t\t</form>
 \t\t\t<ul class=\"navbar-nav\">
 \t\t\t\t{% if app.user %}
-\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"\" class=\"btn btn-info me-3\">Mon compte</a>
-\t\t\t\t\t</li>
+\t\t\t\t\t{% if is_granted('ROLE_ADMIN') %}
+\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<a href=\"{{ path('admin') }}\" class=\"nav-link\">Administration</a>
+\t\t\t\t\t\t</li>
+\t\t\t\t\t{% endif %}
+\t\t\t\t\t<div class=\"btn-group\">
+\t\t\t\t\t\t<button class=\"dropdown-toggle btn-dropdown-user\" type=\"button\" data-bs-toggle=\"dropdown\" data-bs-display=\"static\" aria-expanded=\"false\"></button>
+\t\t\t\t\t\t<ul class=\"dropdown-menu dropdown-menu-lg-end py-0\">
 
-\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"{{ path('app_logout') }}\" class=\"btn btn-dark\">Me déconnecter</a>
-\t\t\t\t\t</li>
+\t\t\t\t\t\t\t<li class=\"py-2 px-2\">
+\t\t\t\t\t\t\t\t<a class=\"dropdown-item dropdown-user color-btn-logout\" href=\"{{ path('app_logout') }}\">Se déconnecter</a>
+\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t</ul>
+\t\t\t\t\t</div>
 \t\t\t\t{% else %}
 \t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"{{ path('app_login') }}\" class=\"btn btn-success\">Me connecter</a>
+\t\t\t\t\t\t<a href=\"{{ path('app_login') }}\" class=\"btn btn-success\">Se connecter</a>
 \t\t\t\t\t</li>
 \t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t<a href=\"{{ path('app_register') }}\" class=\"btn btn-danger\">M'inscrire'</a>
+\t\t\t\t\t\t<a href=\"{{ path('register') }}\" class=\"btn btn-danger\">M'inscrire</a>
 \t\t\t\t\t</li>
 \t\t\t\t{% endif %}
 
-\t\t\t</ul>
-
+\t\t\t</div>
 \t\t</div>
-\t</div>
-</nav>
+\t</nav>
 ", "shared/_navbar.html.twig", "/Users/emma/Code/En cours/abeilles_et_plantes/templates/shared/_navbar.html.twig");
     }
 }

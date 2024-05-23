@@ -19,7 +19,7 @@ class Images
     #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'name')]
     private ?File $imageFile = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(nullable: true)]
     private ?string $name = null;
 
     #[ORM\Column(nullable: true)]
@@ -65,16 +65,16 @@ class Images
         return $this->name;
     }
 
-    public function __toString(): string
-    {
-        return $this->name;
-    }
-
     public function setName(string $name): static
     {
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+      return $this->name;
     }
 
     public function getUpdatedAt(): ?\DateTimeImmutable

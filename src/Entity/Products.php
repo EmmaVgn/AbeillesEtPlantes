@@ -6,6 +6,7 @@ use App\Entity\Trait\CreatedAtTrait;
 use App\Entity\Trait\SlugTrait;
 use App\Repository\ProductsRepository;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -37,23 +38,20 @@ class Products
     #[ORM\Column]
     private ?int $stock = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
     private ?int $capacity = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?DateTime $bestBeforeDate = null;
 
     #[ORM\Column]
     private ?bool $isValid = false;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 255, type: 'string')]
     private ?string $attachment = null;
 
     #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'attachment')]
     private ?File $attachmentFile = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -70,6 +68,9 @@ class Products
      */
     #[ORM\OneToMany(targetEntity: OrdersDetails::class, mappedBy: 'products')]
     private Collection $ordersDetails;
+
+    #[ORM\Column(options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private ?\DateTimeImmutable $bestBeforeDateAt = null;
 
     public function __construct()
     {
@@ -140,19 +141,6 @@ class Products
     public function setCapacity(int $capacity): static
     {
         $this->stock = $capacity;
-
-        return $this;
-    }
-
-    public function getBestBeforeDate(): ?\DateTimeImmutable
-    {
-        return $this->bestBeforeDate;
-    }
-
-    
-    public function setBestBeforeDate(\DateTimeImmutable $bestBeforeDate): self
-    {
-        $this->bestBeforeDate = $bestBeforeDate;
 
         return $this;
     }
@@ -281,6 +269,18 @@ class Products
                 $ordersDetail->setProducts(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBestBeforeDateAt(): ?\DateTimeImmutable
+    {
+        return $this->bestBeforeDateAt;
+    }
+
+    public function setBestBeforeDateAt(\DateTimeImmutable $bestBeforeDateAt): static
+    {
+        $this->bestBeforeDateAt = $bestBeforeDateAt;
 
         return $this;
     }

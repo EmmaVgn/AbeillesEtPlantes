@@ -5,6 +5,9 @@
 
 {% block body %}
 	<h1>Liste des produits</h1>
+	{% for products in products %}
+		{% include "products/_products.html.twig" %}
+	{% endfor %}
 
 
 {% endblock %}

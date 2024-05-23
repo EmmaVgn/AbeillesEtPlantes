@@ -98,41 +98,30 @@ class __TwigTemplate_5ccc5a3f0532670c5d31587e4bf89d4a extends Template
         $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 13, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
             // line 14
-            echo "\t\t\t\t";
-            if ((twig_get_attribute($this->env, $this->source, $context["category"], "parent", [], "any", false, false, false, 14) == null)) {
-                // line 15
-                echo "\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t<h2>";
-                // line 16
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 16), "html", null, true);
-                echo "</h2>
-\t\t\t\t\t</div>
-\t\t\t\t";
-            } else {
-                // line 19
-                echo "\t\t\t\t\t<div class=\"col-4\">
-\t\t\t\t\t\t<div class=\"card h-100\">
-\t\t\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t\t\t<h3 class=\"card-title\">";
-                // line 22
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 22), "html", null, true);
-                echo "</h3>
-\t\t\t\t\t\t\t\t<a href=\"";
-                // line 23
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categories_list", ["slug" => twig_get_attribute($this->env, $this->source, $context["category"], "slug", [], "any", false, false, false, 23)]), "html", null, true);
-                echo "\" class=\"btn btn-primary\">Voir les produits</a>
-\t\t\t\t\t\t\t</div>
+            echo "\t\t\t\t<h2>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 14), "html", null, true);
+            echo "</h2>
+\t\t\t\t<div class=\"col-4\">
+\t\t\t\t\t<div class=\"card h-100\">
+\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t<h3 class=\"card-title\">";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 18), "html", null, true);
+            echo "</h3>
+\t\t\t\t\t\t\t<a href=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categories_list", ["slug" => twig_get_attribute($this->env, $this->source, $context["category"], "slug", [], "any", false, false, false, 19)]), "html", null, true);
+            echo "\" class=\"btn btn-primary\">Voir les produits</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
-\t\t\t\t";
-            }
-            // line 28
-            echo "\t\t\t";
+\t\t\t\t</div>
+
+\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 25
         echo "\t\t</section>
 \t</main>
 ";
@@ -165,7 +154,7 @@ class __TwigTemplate_5ccc5a3f0532670c5d31587e4bf89d4a extends Template
      */
     public function getDebugInfo()
     {
-        return array (  136 => 29,  130 => 28,  122 => 23,  118 => 22,  113 => 19,  107 => 16,  104 => 15,  101 => 14,  97 => 13,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  125 => 25,  113 => 19,  109 => 18,  101 => 14,  97 => 13,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,20 +172,16 @@ class __TwigTemplate_5ccc5a3f0532670c5d31587e4bf89d4a extends Template
 \t\t\t\t<p>Bienvenue dans notre boutique</p>
 \t\t\t</div>
 \t\t\t{% for category in categories %}
-\t\t\t\t{% if category.parent == null %}
-\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t<h2>{{ category.name }}</h2>
-\t\t\t\t\t</div>
-\t\t\t\t{% else %}
-\t\t\t\t\t<div class=\"col-4\">
-\t\t\t\t\t\t<div class=\"card h-100\">
-\t\t\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t\t\t<h3 class=\"card-title\">{{ category.name }}</h3>
-\t\t\t\t\t\t\t\t<a href=\"{{ path('categories_list', {slug: category.slug}) }}\" class=\"btn btn-primary\">Voir les produits</a>
-\t\t\t\t\t\t\t</div>
+\t\t\t\t<h2>{{ category.name }}</h2>
+\t\t\t\t<div class=\"col-4\">
+\t\t\t\t\t<div class=\"card h-100\">
+\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t<h3 class=\"card-title\">{{ category.name }}</h3>
+\t\t\t\t\t\t\t<a href=\"{{ path('categories_list', {slug: category.slug}) }}\" class=\"btn btn-primary\">Voir les produits</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
-\t\t\t\t{% endif %}
+\t\t\t\t</div>
+
 \t\t\t{% endfor %}
 \t\t</section>
 \t</main>

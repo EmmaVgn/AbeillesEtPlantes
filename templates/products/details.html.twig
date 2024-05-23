@@ -20,7 +20,7 @@
 					<div class="carousel-inner">
 						{% for image in product.images %}
 							<div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
-								<img src="{{ asset('assets/uploads/') ~ image.name }}" class="d-block w-100" alt="{{ product.name }}">
+								<img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="d-block w-100" alt="{{ product.name }}">
 							</div>
 						{% endfor %}
 					</div>
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="col-6">
-				<p>{{ product.description }}</p>
+				<p>{{ product.description|raw|nl2br|striptags }}</p>
 				<p>Catégorie :
 					{{ product.categories.name }}</p>
 				<p>Prix :
